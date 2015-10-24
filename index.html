@@ -3,8 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <title>webscenario</title>
-</head>
-<body bgcolor="#000">
+  <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lora:400italic|PT+Serif:400italic|Playfair+Display:400italic' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+  <style>
+
+/*  html { 
+  background: url(jp.gif) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }*/
+
+  body {
+    background-color: #000;
+
+    /*opacity: 0.5;*/
+    /*filter: alpha(opacity=50); /* For IE8 and earlier */
+  }
+
+  #title {
+    font-family: 'Lato', sans-serif;
+    font-size: 80px;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size:20px;
+    font-family: 'Lora', serif;
+    text-align: center;
+  }
+
+  .red {
+    color: #A30000;
+  }
+
+  .white {
+    color:#FEFEFE;
+  }
   
+  #soon {
+    padding-top: 20px;
+  }
+
+  #footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    padding-bottom: 20px;
+  }
+
+  #dark {
+    z-index: -1;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: #000;
+    width:100%;
+    height:100%;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+  }
+/*
+  img.bg {
+    z-index: -2;
+
+    min-height: 100%;
+    min-width: 1280px;
+    
+    width: 100%;
+    height: auto;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+*/
+  
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+  }
+
+  .fullscreen-bg__video {
+    display: none;
+  }
+}
+
+
+
+
+  @media(max-width: 480px) {
+    #title {
+      font-size: 50px;
+    }
+    .subtitle {
+      font-size: 14px;
+    }
+  }
+
+/*  @media screen and (max-width: 1280px) { 
+    img.bg {
+      left: 50%;
+      margin-left: -640px;   
+    }
+  }*/
+  </style>
+</head>
+<body>
+  <div class="fullscreen-bg">
+    <video loop muted autoplay class="fullscreen-bg__video">
+        <source src="img/jp.webm" type="video/webm">
+    </video>
+</div>
+  <!-- <img src="img/jp.gif" class="bg" alt="RRRAWR RRRAWR"> -->
+  <div id="dark">&nbsp;</div>
+  <div id="soon" class="subtitle white">próximamente</div>
+  <div id="title"><span class="red">web</span><span class="white">scenario</span></div>
+  <div id="footer" class="subtitle white">“...steadily coding them javascripts...”</div>
 </body>
 </html>
