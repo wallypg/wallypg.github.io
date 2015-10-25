@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <title>webscenario</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Lora:400italic|PT+Serif:400italic|Playfair+Display:400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
   <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
   <style>
-
 /*  html { 
   background: url(jp.gif) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -50,6 +49,7 @@
   }
 
   #footer {
+    font-size: 15px;
     position:fixed;
     left:0px;
     bottom:0px;
@@ -86,6 +86,8 @@
 */
   
 .fullscreen-bg {
+  min-height: 100%;
+  min-width: 1280px;
   position: fixed;
   top: 0;
   right: 0;
@@ -117,13 +119,14 @@
   }
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 1280px) {
   .fullscreen-bg {
-    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+      left: 50%;
+      margin-left: -640px; 
   }
 
   .fullscreen-bg__video {
-    display: none;
+    /*display: none;*/
   }
 }
 
@@ -132,31 +135,33 @@
 
   @media(max-width: 480px) {
     #title {
-      font-size: 50px;
+      font-size: 55px;
     }
     .subtitle {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 
-/*  @media screen and (max-width: 1280px) { 
+  /*  @media screen and (max-width: 1280px) { 
     img.bg {
       left: 50%;
       margin-left: -640px;   
     }
   }*/
   </style>
+
 </head>
 <body>
   <div class="fullscreen-bg">
-    <video loop muted autoplay class="fullscreen-bg__video">
+    <video loop muted autoplay class="fullscreen-bg__video" poster="img/poster.png">
         <source src="img/jp.webm" type="video/webm">
     </video>
 </div>
-  <!-- <img src="img/jp.gif" class="bg" alt="RRRAWR RRRAWR"> -->
   <div id="dark">&nbsp;</div>
-  <div id="soon" class="subtitle white">próximamente</div>
+  <div id="soon" class="subtitle white">próximamente...</div>
   <div id="title"><span class="red">web</span><span class="white">scenario</span></div>
-  <div id="footer" class="subtitle white">“...steadily coding them javascripts...”</div>
+  <div id="title" class="white" style="font-size:18px;padding-top:6px;">diseño y desarrollo web</div>
+
+  <div id="footer" class="subtitle white">* steadily codin' them javascripts *</div>
 </body>
 </html>
