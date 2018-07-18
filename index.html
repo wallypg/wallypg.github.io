@@ -3,68 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>webscenario</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+  <title>codingAround</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
   <style>
-/*  html { 
-  background: url(jp.gif) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  }*/
 
-  body {
-    background-color: #000;
+  /* Google Fonts */
+  @import url(http://fonts.googleapis.com/css?family=Anonymous+Pro);
 
-    /*opacity: 0.5;*/
-    /*filter: alpha(opacity=50); /* For IE8 and earlier */
+  html{
+    min-height: 100%;
+    overflow: hidden;
   }
-
-  #title {
-    font-family: 'Lato', sans-serif;
-    font-size: 80px;
-    font-weight: 300;
+  body{
+    height: calc(100vh - 8em);
+    padding: 4em;
+    color: rgba(255,255,255,.75);
+    font-family: 'Anonymous Pro', monospace;  
+    background-color: rgb(25,25,25);
+  }
+  img {
+    width: 110px;
+  }
+  .container {
+    margin: 0 auto;
     text-align: center;
+    position: relative;
+    top: 35%;
+  }
+  .container>div{
+    margin-top: 30px;
+  }
+  .line-1{
+      position: relative;
+      top: 50%;  
+      width: 8.1em;
+      /*width: 8.8em;*/
+      margin: 0 auto;
+      border-right: 2px solid rgba(255,255,255,.75);
+      font-size: 28px;
+      line-height:28px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      transform: translateY(-50%);    
   }
 
-  .subtitle {
-    font-size:20px;
-    font-family: 'Lora', serif;
-    text-align: center;
+  /* Animation */
+  .anim-typewriter{
+    /*animation: typewriter 2s steps(16) 2s 1 normal both,*/
+    animation: typewriter 2.2s steps(15) 2.2s 1 normal both,
+               blinkTextCursor 500ms steps(15) infinite normal;
+               /*blinkTextCursor 500ms steps(16) infinite normal;*/
+  }
+  p{
+    height: 30px;
+  }
+  .emphasis-red {
+    color:#cc1f1f;
+  }
+  .emphasis-white {
+    /*color:#fafafa;*/
+  }
+  @keyframes typewriter{
+    from{width: 0;}
+    to{width: 8.1em;}
+    /*to{width: 8.7em;}*/
+  }
+  @keyframes blinkTextCursor{
+    from{border-right-color: rgba(255,255,255,.75);}
+    to{border-right-color: transparent;}
   }
 
-  .red {
-    color: #A30000;
-  }
 
-  .white {
-    color:#FEFEFE;
-  }
-  
-  #soon {
-    padding-top: 20px;
-  }
-
-  #footer {
-    font-size: 15px;
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-    padding-bottom: 20px;
-  }
-
+  /* BACKGROUND */
   #dark {
     z-index: -1;
     position: fixed;
     top:0;
     left:0;
-    /*background-color: #000;001026*/
     background-color: #000019;
 
     width:100%;
@@ -72,128 +90,62 @@
     opacity: 0.4;
     filter: alpha(opacity=40); /* For IE8 and earlier */
   }
-  #spacer {
-    position:relative;
-  }
-/*
-  img.bg {
-    z-index: -2;
 
+  .bg-fullscreen {
     min-height: 100%;
     min-width: 1280px;
-    
-    width: 100%;
-    height: auto;
-    
     position: fixed;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
-  }
-*/
-  
-.fullscreen-bg {
-  min-height: 100%;
-  min-width: 1280px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -100;
-}
-
-.fullscreen-bg__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-@media handheld, screen and (min-aspect-ratio: 16/9) {
-  .fullscreen-bg__video {
-    height: 300%;
-    top: -100%;
-  }
-}
-
-@media handheld, screen and (max-aspect-ratio: 16/9) {
-  .fullscreen-bg__video {
-    width: 300%;
-    left: -100%;
-  }
-}
-
-@media handheld, screen and (max-width: 1280px) {
-  .fullscreen-bg {
-      left: 50%;
-      margin-left: -640px; 
+    overflow: hidden;
+    z-index: -100;
   }
 
-  .fullscreen-bg__video {
-    /*display: none;*/
+  .bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
-}
 
-
-
-
-  @media handheld, screen and (max-width: 480px) {
-    #title {
-      font-size: 53px;
-    }
-    .subtitle {
-      font-size: 16px;
-    }
-    .xs-hide {
-      display:none!important;
-    }
-    .stack {
-      display:block;
-      width:100%;
-      text-align: center;
-    }
-    #footer {
-      padding-bottom: 60px!important;
+  @media handheld, screen and (min-aspect-ratio: 16/9) {
+    .bg-video {
+      height: 300%;
+      top: -100%;
     }
   }
 
-  @media handheld, screen and (max-height: 270px) {
-    #footer {
-    position:absolute!important;
-    top:0px!important;
-    padding-top:25px;
-  }
-  }
-
-  /*  @media screen and (max-width: 1280px) { 
-    img.bg {
-      left: 50%;
-      margin-left: -640px;   
+  @media handheld, screen and (max-aspect-ratio: 16/9) {
+    .bg-video {
+      width: 300%;
+      left: -100%;
     }
-  }*/
+  }
 
+  @media handheld, screen and (max-width: 1280px) {
+    .bg-fullscreen {
+        left: 50%;
+        margin-left: -640px; 
+    }
+  }  
 
   </style>
-
 </head>
 <body>
-  <div class="fullscreen-bg">
-    <video loop muted autoplay class="fullscreen-bg__video" poster="img/poster.png">
-        <source src="img/jp.webm" type="video/webm">
+  <div id="dark"></div>
+  <div class="bg-fullscreen">
+    <video loop muted autoplay class="bg-video" poster="images/poster.png">
+        <source src="images/jp.webm" type="video/webm">
     </video>
   </div>
-  <div id="dark">&nbsp;</div>
-  <div id="soon" class="subtitle white">próximamente...</div>
-  <div id="title"><span class="red">web</span><span class="white">scenario</span></div>
-  <div id="title" class="white" style="font-size:24px;padding-top:6px;">diseño y desarrollo web</div>
-  
-  <div id="spacer">
-    <div id="footer" class="subtitle white">* steadily codin' them javascripts *
-        <div style="padding-top:5px;"><span class="stack">Pablo Coronel</span> <span class="xs-hide" style="display:inline-block;">&nbsp;&nbsp;|&nbsp;&nbsp;</span> <span class="stack">Federico Pérez</span> <span class="xs-hide" style="display:inline-block;">&nbsp;&nbsp;|&nbsp;&nbsp;</span> <span class="stack">Walther Pérez Graciano</span></div>
+  <div class="container">
+    <img src="images/white-bg.png" alt="">
+    <div>
+      <p class="line-1 anim-typewriter">&lt;<span class="emphasis-red">coding</span>around/&gt;</p>
     </div>
   </div>
-
 </body>
 </html>
